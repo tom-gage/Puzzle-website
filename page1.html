@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>page1</title>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+    <!-- Puzzle box -->
+    <style>
+        .puzzlebox{
+        position:relative;
+        background-color: orange;
+        width:750px;
+        height:700px;
+        border:1px solid black;
+        float: left;
+        }
+    </style>
+
+    <!-- Draggables -->
+    <script>
+        $(function() {
+            $("#drag1").draggable({snap: true, snapTolerance: 12,containment:"#box"});
+            $("#drag2").draggable({snap: true, snapTolerance: 12,containment:"#box"});
+            $("#drag3").draggable({snap: true, snapTolerance: 12,containment:"#box"});
+            $("#drag4").draggable({snap: true, snapTolerance: 12,containment:"#box"});
+            $("#drag5").draggable({snap: true, snapTolerance: 12,containment:"#box"});
+            $("#drag6").draggable({snap: true, snapTolerance: 12,containment:"#box"});
+        });
+    </script>
+
+    <!-- Retreive image coords + check puzzle complete -->
+    <script>
+        $(function(){
+            $("#check").click(function(){
+                var pos1 = $("#drag1").position();
+                var pos2 = $("#drag2").position();
+                var pos3 = $("#drag3").position();
+                var pos4 = $("#drag4").position();
+                var pos5 = $("#drag5").position();
+                var pos6 = $("#drag6").position();
+
+                if(pos2.top-pos1.top==96 && pos3.top-pos1.top==192 && pos4.top-pos1.top==0 && pos5.top-pos1.top==96 &&
+                pos6.top-pos1.top==192 && pos2.left-pos1.left==0 && pos3.left-pos1.left==0 && pos4.left-pos1.left==244 &&
+                pos5.left-pos1.left==244 && pos6.left-pos1.left==244){
+                alert("Puzzle complete!")
+                }else{
+                alert("Puzzle incomplete.")
+                }
+            });
+        });
+    </script>
+
+    <!-- Scramble puzzle on page load-->
+    <script>
+        $(document).ready(function(){
+        moveImages();
+        });
+    </script>
+
+    <!-- Scramble puzzle -->
+    <script>
+    function moveImages(){
+        var xLimit = 700-244
+        var yLimit = 700-92
+
+        var randomX = Math.round((Math.random() * xLimit));
+        var randomY = Math.round((Math.random() * yLimit));
+        drag1.style.top=randomY+"px";
+        drag1.style.left=randomX+"px";
+
+        var randomX = Math.round((Math.random() * xLimit));
+        var randomY = Math.round((Math.random() * yLimit));
+        drag2.style.top=randomY+"px";
+        drag2.style.left=randomX+"px";
+
+        var randomX = Math.round((Math.random() * xLimit));
+        var randomY = Math.round((Math.random() * yLimit));
+        drag3.style.top=randomY+"px";
+        drag3.style.left=randomX+"px";
+
+        var randomX = Math.round((Math.random() * xLimit));
+        var randomY = Math.round((Math.random() * yLimit));
+        drag4.style.top=randomY+"px";
+        drag4.style.left=randomX+"px";
+
+        var randomX = Math.round((Math.random() * xLimit));
+        var randomY = Math.round((Math.random() * yLimit));
+        drag5.style.top=randomY+"px";
+        drag5.style.left=randomX+"px";
+
+        var randomX = Math.round((Math.random() * xLimit));
+        var randomY = Math.round((Math.random() * yLimit));
+        drag6.style.top=randomY+"px";
+        drag6.style.left=randomX+"px";
+        }
+    </script>
+
+    <!-- Menu button -->
+    <script>
+            function showMenuButton(){
+                document.getElementById('navlist').style.display='block'
+                document.getElementById('showbutton').style.display='none'
+                document.getElementById('hidebutton').style.display='block'
+            }
+             function hideMenuButton(){
+                document.getElementById('navlist').style.display='none'
+                document.getElementById('showbutton').style.display='block'
+                document.getElementById('hidebutton').style.display='none'
+            }
+    </script>
+    </head>
+
+<body style="background-color:powderblue;">
+    <h1 style="text-align:center; color:grey"><b>Page 1</b></h1>
+
+    <button id="showbutton" type="button"
+            onclick="showMenuButton()">Show Menu</button>
+
+    <button id="hidebutton" type="button" style.display="none"
+            onclick="hideMenuButton()">Hide Menu</button>
+
+    <script>
+            document.getElementById('hidebutton').style.display='none'
+        </script>
+
+    <div>
+        <ul id="navlist" style="display:none">
+            <li><a href="index.html"> Page 0</a> </li>
+            <li><span href="page1.html"> Page 1 </span></li>
+            <li><a href="page2.html"> Page 2 </a></li>
+            <li><a href="page3.html"> Page 3 </a></li>
+        </ul>
+    </div>
+
+<!-- Scramble + Check buttons -->
+    <button id="reset" type="button"
+            onclick="moveImages()">Scramble Puzzle</button>
+
+    <button id="check" type="button"
+            onclick="checkPuzzle()">Check Puzzle</button>
+
+<br>
+<!-- Puzzlebox -->
+    <div id="box" class="puzzlebox">
+        <div id="drag1" style="position:absolute;top:0">
+            <img src="dog_1.png" alt="image1" height="92" width="244">
+        </div>
+
+        <div id="drag2" style="position:absolute;top:0">
+            <img src="dog_2.png" alt="image2" height="92" width="244">
+        </div>
+
+        <div id="drag3" style="position:absolute;top:0">
+            <img src="dog_3.png" alt="image3" height="92" width="244">
+        </div>
+
+        <div id="drag4" style="position:absolute;top:0">
+            <img src="dog_4.png" alt="image4" height="92" width="244">
+        </div>
+
+        <div id="drag5" style="position:absolute;top:0">
+            <img src="dog_5.png" alt="image5" height="92" width="244">
+        </div>
+
+        <div id="drag6" style="position:absolute;top:0">
+            <img src="dog_6.png" alt="image6" height="92" width="244">
+        </div>
+    </div>
+
+</body>
+</html>

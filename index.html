@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>My first webpage</title>
+        <script src="jquery-1.12.4.min.js"></script>
+        <script>
+            function showMenuButton(){
+                document.getElementById('navlist').style.display='block'
+                document.getElementById('showbutton').style.display='none'
+                document.getElementById('hidebutton').style.display='block'
+            }
+             function hideMenuButton(){
+                document.getElementById('navlist').style.display='none'
+                document.getElementById('showbutton').style.display='block'
+                document.getElementById('hidebutton').style.display='none'
+            }
+        </script>
+
+    </head>
+
+    <body style="background-color:powderblue;">
+        <h1 style="text-align:center; color:grey"><b>Title Text</b></h1>
+
+        <button id="showbutton" type="button"
+                onclick="showMenuButton()">Show Menu</button>
+
+        <button id="hidebutton" type="button" style.display="none"
+                onclick="hideMenuButton()">Hide Menu</button>
+
+        <script>
+            document.getElementById('hidebutton').style.display='none'
+        </script>
+
+        <div>
+            <ul id="navlist" style="display:none">
+                <li><span href="index.html"> Page 0</span> </li>
+                <li><a href="page1.html"> Page 1 </a></li>
+                <li><a href="page2.html"> Page 2 </a></li>
+                <li><a href="page3.html"> Page 3 </a></li>
+            </ul>
+        </div>
+
+    </body>
+</html>
