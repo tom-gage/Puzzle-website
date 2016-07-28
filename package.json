@@ -1,0 +1,22 @@
+{
+  "name": "puzzlewebsite",
+  "version": "1.0.0",
+  "description": "it has a puzzle",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tom-gage/Puzzle-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tom-gage/Puzzle-website/issues"
+  },
+  "homepage": "https://github.com/tom-gage/Puzzle-website#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
